@@ -8,8 +8,8 @@ type SidebarProps = {
 
 export default function Sidebar({ folders }: SidebarProps) {
   return (
-    <aside className="w-60 shrink-0 border-r border-zinc-200 bg-zinc-50 p-4">
-      <nav className="flex flex-col gap-4">
+    <aside className="w-60 shrink-0 border-r border-[var(--border)] bg-[var(--card)] px-3 py-6">
+      <nav className="flex flex-col gap-6">
         <AllButton />
         <FolderList folders={folders} />
       </nav>

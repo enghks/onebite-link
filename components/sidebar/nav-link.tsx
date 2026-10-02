@@ -17,8 +17,10 @@ export default function NavLink({ href, className = "", children }: NavLinkProps
     <NextLink
       href={href}
       aria-current={isActive ? "page" : undefined}
-      className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-        isActive ? "bg-zinc-900 text-white" : "text-zinc-700 hover:bg-zinc-200"
+      className={`transition-color flex w-full items-center gap-2 rounded-[6px] px-2 py-1.5 text-left text-sm ${
+        isActive
+          ? "bg-[var(--hover-bg)] font-semibold text-[var(--text)]"
+          : "nav-item text-[var(--text-sub)]"
       } ${className}`}
     >
       {children}

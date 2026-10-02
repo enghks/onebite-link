@@ -9,7 +9,7 @@ type NewLinkFormProps = {
 
 export default function NewLinkForm({ folders }: NewLinkFormProps) {
   return (
-    <form className="flex flex-col gap-5 rounded-xl border border-zinc-200 bg-white p-6">
+    <form className="flex flex-col gap-4 rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
       <UrlInput />
       <FolderSelect folders={folders} />
       <SaveButton />

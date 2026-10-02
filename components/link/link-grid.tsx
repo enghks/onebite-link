@@ -8,14 +8,17 @@ type LinkGridProps = {
 export default function LinkGrid({ links }: LinkGridProps) {
   if (links.length === 0) {
     return (
-      <p className="py-20 text-center text-sm text-zinc-400">
-        등록된 링크가 없습니다.
-      </p>
+      <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed border-[var(--border)] py-20 text-center">
+        <span aria-hidden className="text-3xl">
+          📭
+        </span>
+        <p className="text-sm text-[var(--text-sub)]">등록된 링크가 없습니다.</p>
+      </div>
     );
   }
 
   return (
-    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {links.map((link) => (
         <li key={link.id}>
           <LinkCard link={link} />

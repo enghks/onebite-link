@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f7f7f5;
+  --card: #ffffff;
+  --text: #37352f;
+  /* 명암비 3:1 이상 확보를 위해 가이드 값(#9B9A97)보다 어둡게 조정 */
+  --text-sub: #787774;
+  --placeholder: #91918e;
+  --border: #e3e3e0;
+  /* 흰색 텍스트 대비 3:1 이상 확보를 위해 가이드 값(#2EAADC)보다 어둡게 조정 */
+  --accent: #2383c4;
+  --accent-hover: #1b6fa8;
+  --hover-bg: #f1f1ef;
+  --error: #eb5757;
+  --success: #4dab9a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+/* 트랜지션 */
+.transition-color {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* 헤더 */
+.header-blur {
+  background: rgb(247 247 245 / 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 버튼 */
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 카드 */
+.card-hover:hover {
+  background: var(--bg);
+}
+
+/* 사이드바 네비게이션 */
+.nav-item:hover {
+  background: var(--hover-bg);
+}
+
+/* 입력 필드 / 셀렉트 */
+.field {
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--text);
+  outline: none;
+}
+.field::placeholder {
+  color: var(--placeholder);
+}
+.field:focus {
+  border-color: var(--accent);
+}
+.field:user-invalid {
+  border-color: var(--error);
+}
+
+.select-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23787774' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
 }

@@ -2,8 +2,9 @@ import NavLink from "./nav-link";
 
 export default function AllButton() {
   return (
-    <NavLink href="/" className="font-semibold">
-      ALL
+    <NavLink href="/">
+      <span aria-hidden>🗂️</span>
+      <span>전체</span>
     </NavLink>
   );
 }
